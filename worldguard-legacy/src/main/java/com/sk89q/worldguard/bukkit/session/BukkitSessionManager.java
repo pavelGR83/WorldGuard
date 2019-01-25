@@ -19,6 +19,8 @@
 
 package com.sk89q.worldguard.bukkit.session;
 
+import com.sk89q.worldedit.world.World;
+import com.sk89q.worldguard.LocalPlayer;
 import com.sk89q.worldguard.bukkit.BukkitPlayer;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.session.AbstractSessionManager;
@@ -68,7 +70,7 @@ public class BukkitSessionManager extends AbstractSessionManager implements Runn
     
     @Override
     public boolean hasBypass(LocalPlayer player, World world) {
-        if (player instanceof BukkitPlayer && ((BukkitPlayer) player).hasMetadata("NPC"))
+        if (player instanceof BukkitPlayer && ((BukkitPlayer) player).getPlayer().hasMetadata("NPC"))
             return true;
         return base.hasBypass(player, world);
     }
