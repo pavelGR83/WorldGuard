@@ -72,6 +72,6 @@ public class BukkitSessionManager extends AbstractSessionManager implements Runn
     public boolean hasBypass(LocalPlayer player, World world) {
         if (player instanceof BukkitPlayer && ((BukkitPlayer) player).getPlayer().hasMetadata("NPC"))
             return true;
-        return base.hasBypass(player, world);
+        return super.hasBypass(player, world);
     }
 }
