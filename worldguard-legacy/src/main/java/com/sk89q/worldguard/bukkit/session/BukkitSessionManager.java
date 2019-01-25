@@ -65,4 +65,11 @@ public class BukkitSessionManager extends AbstractSessionManager implements Runn
             get(new BukkitPlayer(WorldGuardPlugin.inst(), player)).tick(new BukkitPlayer(WorldGuardPlugin.inst(), player));
         }
     }
+    
+    @Override
+    public boolean hasBypass(LocalPlayer player, World world) {
+        if (player instanceof BukkitPlayer && ((BukkitPlayer) player).hasMetadata("NPC"))
+            return true;
+        return base.hasBypass(player, world);
+    }
 }
